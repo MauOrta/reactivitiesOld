@@ -41,9 +41,9 @@ namespace Application.Activities
                         activity.Date = request.Date ?? activity.Date;
                         activity.City = request.City ?? activity.City;
                         activity.Venue = request.Venue ?? activity.Venue;
-
-                       var success = await _context.SaveChangesAsync() > 0;
-        
+                       
+                        var success = await _context.SaveChangesAsync(cancellationToken) > 0;
+                      
                         if (success) return Unit.Value;
         
                         throw new Exception("Problem Saving changes");
